@@ -21,6 +21,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view("posts/show") -> with(["post" => $post]);
+        //なぜこれだけでidを一意に識別できる？ 
+        //web.phpの"/posts/{post}"の{post}が同一リソースなら識別してくれる？
     }
 }
 
