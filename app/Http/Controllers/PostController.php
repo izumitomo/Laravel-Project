@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;//フォルダ名はappだが、Appでは認識してくれない。
+use App\Http\Requests\PostRequest;
 
 
 /*
@@ -27,6 +28,13 @@ class PostController extends Controller
     public function create()
     {
     return view('posts/create');
+    }
+    public function store(PostRequest $request, Post $post)
+    {
+        $input = $request["post"];
+        $post -> fill($input) -> save();
+        return redirect("/posts/" . $post -> id);
+        // 「.」は結合の意味がある？
     }
 }
 
