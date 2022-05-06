@@ -24,6 +24,10 @@ class PostController extends Controller
         //なぜこれだけでidを一意に識別できる？ 
         //web.phpの"/posts/{post}"の{post}が同一リソースなら識別してくれる？
     }
+    public function create()
+    {
+    return view('posts/create');
+    }
 }
 
 ?>
