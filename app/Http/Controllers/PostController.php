@@ -27,7 +27,7 @@ class PostController extends Controller
     }
     public function create()
     {
-    return view('posts/create');
+    return view("posts/create");
     }
     public function store(PostRequest $request, Post $post)
     {
@@ -35,6 +35,16 @@ class PostController extends Controller
         $post -> fill($input) -> save();
         return redirect("/posts/" . $post -> id);
         // 「.」は結合の意味がある？
+    }
+    public function edit(Post $post)
+    {
+        return view("posts/edit") -> with(["post" => $post]);
+    }
+    public function update(PostRequest $request, Post $post)
+    {
+        $input = $request["post"];
+        $post -> fill($input) -> save();
+        return redirect("/posts/" . $post -> id);
     }
 }
 
