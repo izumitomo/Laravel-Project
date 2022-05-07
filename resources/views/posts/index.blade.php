@@ -18,10 +18,25 @@
                     </h2>
                     <p class="body">{{ $post -> body}}</p>
                 </div>
+                 <div class="delete">
+                    <form action="/posts/{{ $post -> id }}/" id="form_delete" method="post" style="display:inline";
+                        @csrf
+                        @method("DELETE")
+                        <p class="delete"><span onclick="return deletePost(this);">削除</span></p>
+                    </form>
+                </div>
             @endforeach
         </div>
         <div class="paginate">
             {{ $posts -> links() }}
         </div>
+        <script>
+            function deletePost(e){
+                "use strict";
+                if (confirm("Delete?")) {
+                    document.getElementById("form_delete").submit();
+                }
+            }
+        </script>
     </body>
 </html>
