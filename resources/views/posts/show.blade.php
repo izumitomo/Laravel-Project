@@ -15,6 +15,7 @@
             <p class="updated_at">{{ $post -> updated_at }}</p>
         </div>
         <div class="footer">
+            <a href="/posts/{{ $post -> id }}/edit">edit</a>
             <a href="/">back</a>
         </div>
     </body>
