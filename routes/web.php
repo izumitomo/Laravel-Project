@@ -22,3 +22,4 @@ Route::get("/posts/create", "PostController@create");
 */
 Route::post("/posts", "PostController@store");
 Route::put("/posts/{post}", "PostController@update");
+Route::delete("/posts/{post}", "PostController@delete");
